@@ -258,6 +258,8 @@ img { display: block; max-width: 100%; height: auto; }
   -webkit-backdrop-filter: blur(8px);
 }
 
+.nav-close { display: none; }
+
 .nav-links {
   display: flex;
   align-items: center;
