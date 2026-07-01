@@ -182,7 +182,7 @@ img { display: block; max-width: 100%; height: auto; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  transition: all 0.35s ease;
+  transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
   padding: 20px 0;
 }
 
@@ -213,6 +213,11 @@ img { display: block; max-width: 100%; height: auto; }
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+}
+
+.navbar.nav-open {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .navbar.scrolled .hamburger span {
@@ -2937,18 +2942,20 @@ select.form-control { cursor: pointer; }
   .nav-close:hover { opacity: 1; }
   .nav-pill-wrap.open .nav-close { display: block; }
 
-  .nav-pill-wrap.open {
+  .nav-pill-wrap.open,
+  .navbar.scrolled .nav-pill-wrap.open {
     display: flex;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--navy-deep);
-    z-index: 999;
+    background: var(--navy-deep) !important;
+    z-index: 1001;
     align-items: center;
     justify-content: center;
     border-radius: 0;
     border: none;
     padding: 0;
-    backdrop-filter: none;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .nav-pill-wrap.open .nav-links {

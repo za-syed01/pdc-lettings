@@ -23,22 +23,26 @@ if (navbar) {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 if (hamburger && navLinks) {
+  function openNav() {
+    navLinks.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (navbar) navbar.classList.add('nav-open');
+  }
+  function closeNav() {
+    navLinks.classList.remove('open');
+    document.body.style.overflow = '';
+    if (navbar) navbar.classList.remove('nav-open');
+  }
+
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    navLinks.classList.contains('open') ? closeNav() : openNav();
   });
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeNav);
   });
   const navClose = document.getElementById('navClose');
   if (navClose) {
-    navClose.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    navClose.addEventListener('click', closeNav);
   }
 }
 
